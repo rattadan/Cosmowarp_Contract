@@ -1,0 +1,336 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "create_group"
+      ],
+      "properties": {
+        "create_group": {
+          "type": "object",
+          "required": [
+            "group_id",
+            "is_public",
+            "name"
+          ],
+          "properties": {
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "is_public": {
+              "type": "boolean"
+            },
+            "logo_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "delete_group"
+      ],
+      "properties": {
+        "delete_group": {
+          "type": "object",
+          "required": [
+            "group_id"
+          ],
+          "properties": {
+            "group_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "update_group"
+      ],
+      "properties": {
+        "update_group": {
+          "type": "object",
+          "required": [
+            "group_id"
+          ],
+          "properties": {
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "logo_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "send_message"
+      ],
+      "properties": {
+        "send_message": {
+          "type": "object",
+          "required": [
+            "content",
+            "group_id"
+          ],
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "reply_to": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "edit_message"
+      ],
+      "properties": {
+        "edit_message": {
+          "type": "object",
+          "required": [
+            "group_id",
+            "message_id",
+            "new_content"
+          ],
+          "properties": {
+            "group_id": {
+              "type": "string"
+            },
+            "message_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "new_content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "delete_message"
+      ],
+      "properties": {
+        "delete_message": {
+          "type": "object",
+          "required": [
+            "group_id",
+            "message_id"
+          ],
+          "properties": {
+            "group_id": {
+              "type": "string"
+            },
+            "message_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "send_direct_message"
+      ],
+      "properties": {
+        "send_direct_message": {
+          "type": "object",
+          "required": [
+            "encrypted_content",
+            "recipient",
+            "sender_encrypted_content"
+          ],
+          "properties": {
+            "encrypted_content": {
+              "type": "string"
+            },
+            "recipient": {
+              "type": "string"
+            },
+            "sender_encrypted_content": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "update_config"
+      ],
+      "properties": {
+        "update_config": {
+          "type": "object",
+          "properties": {
+            "admin": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "set_user_color"
+      ],
+      "properties": {
+        "set_user_color": {
+          "type": "object",
+          "required": [
+            "color"
+          ],
+          "properties": {
+            "color": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "set_user_preferences"
+      ],
+      "properties": {
+        "set_user_preferences": {
+          "type": "object",
+          "properties": {
+            "bio": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "color": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "vote_message"
+      ],
+      "properties": {
+        "vote_message": {
+          "type": "object",
+          "required": [
+            "group_id",
+            "message_id",
+            "vote_type"
+          ],
+          "properties": {
+            "group_id": {
+              "type": "string"
+            },
+            "message_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "vote_type": {
+              "$ref": "#/definitions/VoteType"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "VoteType": {
+      "type": "string",
+      "enum": [
+        "thumbs_up",
+        "thumbs_down"
+      ]
+    }
+  }
+}

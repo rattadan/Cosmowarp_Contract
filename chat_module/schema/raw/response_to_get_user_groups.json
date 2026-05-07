@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Array_of_ChatGroup",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/ChatGroup"
+  },
+  "definitions": {
+    "ChatGroup": {
+      "type": "object",
+      "required": [
+        "admin",
+        "created_at",
+        "group_id",
+        "is_public",
+        "message_count",
+        "name"
+      ],
+      "properties": {
+        "admin": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "group_id": {
+          "type": "string"
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "logo_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "message_count": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Nullable_UserPreferences",
+  "anyOf": [
+    {
+      "$ref": "#/definitions/UserPreferences"
+    },
+    {
+      "type": "null"
+    }
+  ],
+  "definitions": {
+    "UserPreferences": {
+      "type": "object",
+      "required": [
+        "color"
+      ],
+      "properties": {
+        "bio": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

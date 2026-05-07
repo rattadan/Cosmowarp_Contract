@@ -1,0 +1,42 @@
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+
+# CosmWasm
+artifacts/
+*.wasm
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+*.cache
+
+# Docker volumes
+*_cache/
+
+# Test artifacts
+coverage/
+tarpaulin-report.html
+
+# Backup files
+*.bak
+*.tmp

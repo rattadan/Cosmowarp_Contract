@@ -1,0 +1,1082 @@
+{
+  "contract_name": "chat_module",
+  "contract_version": "0.1.0",
+  "idl_version": "1.0.0",
+  "instantiate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "InstantiateMsg",
+    "type": "object",
+    "properties": {
+      "admin": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "execute": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ExecuteMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "create_group"
+        ],
+        "properties": {
+          "create_group": {
+            "type": "object",
+            "required": [
+              "group_id",
+              "is_public",
+              "name"
+            ],
+            "properties": {
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "group_id": {
+                "type": "string"
+              },
+              "is_public": {
+                "type": "boolean"
+              },
+              "logo_url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "delete_group"
+        ],
+        "properties": {
+          "delete_group": {
+            "type": "object",
+            "required": [
+              "group_id"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "update_group"
+        ],
+        "properties": {
+          "update_group": {
+            "type": "object",
+            "required": [
+              "group_id"
+            ],
+            "properties": {
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "group_id": {
+                "type": "string"
+              },
+              "logo_url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "send_message"
+        ],
+        "properties": {
+          "send_message": {
+            "type": "object",
+            "required": [
+              "content",
+              "group_id"
+            ],
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "group_id": {
+                "type": "string"
+              },
+              "reply_to": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "edit_message"
+        ],
+        "properties": {
+          "edit_message": {
+            "type": "object",
+            "required": [
+              "group_id",
+              "message_id",
+              "new_content"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              },
+              "message_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              "new_content": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "delete_message"
+        ],
+        "properties": {
+          "delete_message": {
+            "type": "object",
+            "required": [
+              "group_id",
+              "message_id"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              },
+              "message_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "send_direct_message"
+        ],
+        "properties": {
+          "send_direct_message": {
+            "type": "object",
+            "required": [
+              "encrypted_content",
+              "recipient",
+              "sender_encrypted_content"
+            ],
+            "properties": {
+              "encrypted_content": {
+                "type": "string"
+              },
+              "recipient": {
+                "type": "string"
+              },
+              "sender_encrypted_content": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "update_config"
+        ],
+        "properties": {
+          "update_config": {
+            "type": "object",
+            "properties": {
+              "admin": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "set_user_color"
+        ],
+        "properties": {
+          "set_user_color": {
+            "type": "object",
+            "required": [
+              "color"
+            ],
+            "properties": {
+              "color": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "set_user_preferences"
+        ],
+        "properties": {
+          "set_user_preferences": {
+            "type": "object",
+            "properties": {
+              "bio": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "color": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "vote_message"
+        ],
+        "properties": {
+          "vote_message": {
+            "type": "object",
+            "required": [
+              "group_id",
+              "message_id",
+              "vote_type"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              },
+              "message_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              "vote_type": {
+                "$ref": "#/definitions/VoteType"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ],
+    "definitions": {
+      "VoteType": {
+        "type": "string",
+        "enum": [
+          "thumbs_up",
+          "thumbs_down"
+        ]
+      }
+    }
+  },
+  "query": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QueryMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "get_config"
+        ],
+        "properties": {
+          "get_config": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_group"
+        ],
+        "properties": {
+          "get_group": {
+            "type": "object",
+            "required": [
+              "group_id"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "list_public_groups"
+        ],
+        "properties": {
+          "list_public_groups": {
+            "type": "object",
+            "properties": {
+              "limit": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint32",
+                "minimum": 0.0
+              },
+              "start_after": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_user_groups"
+        ],
+        "properties": {
+          "get_user_groups": {
+            "type": "object",
+            "required": [
+              "user"
+            ],
+            "properties": {
+              "limit": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint32",
+                "minimum": 0.0
+              },
+              "start_after": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "user": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_message"
+        ],
+        "properties": {
+          "get_message": {
+            "type": "object",
+            "required": [
+              "group_id",
+              "message_id"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              },
+              "message_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "list_messages"
+        ],
+        "properties": {
+          "list_messages": {
+            "type": "object",
+            "required": [
+              "group_id"
+            ],
+            "properties": {
+              "group_id": {
+                "type": "string"
+              },
+              "limit": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint32",
+                "minimum": 0.0
+              },
+              "start_after": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_direct_messages"
+        ],
+        "properties": {
+          "get_direct_messages": {
+            "type": "object",
+            "required": [
+              "counterparty"
+            ],
+            "properties": {
+              "counterparty": {
+                "type": "string"
+              },
+              "limit": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint32",
+                "minimum": 0.0
+              },
+              "start_after": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_user_color"
+        ],
+        "properties": {
+          "get_user_color": {
+            "type": "object",
+            "required": [
+              "user"
+            ],
+            "properties": {
+              "user": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_user_preferences"
+        ],
+        "properties": {
+          "get_user_preferences": {
+            "type": "object",
+            "required": [
+              "user"
+            ],
+            "properties": {
+              "user": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "migrate": null,
+  "sudo": null,
+  "responses": {
+    "get_config": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Config",
+      "type": "object",
+      "properties": {
+        "admin": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_direct_messages": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Array_of_Message",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Message"
+      },
+      "definitions": {
+        "Message": {
+          "type": "object",
+          "required": [
+            "content",
+            "group_id",
+            "message_id",
+            "modified",
+            "sender",
+            "thumbs_down",
+            "thumbs_up",
+            "timestamp"
+          ],
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "message_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "modified": {
+              "type": "boolean"
+            },
+            "modified_at": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "reply_to": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "sender": {
+              "type": "string"
+            },
+            "sender_content": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "thumbs_down": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "thumbs_up": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "timestamp": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "get_group": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Nullable_ChatGroup",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ChatGroup"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "definitions": {
+        "ChatGroup": {
+          "type": "object",
+          "required": [
+            "admin",
+            "created_at",
+            "group_id",
+            "is_public",
+            "message_count",
+            "name"
+          ],
+          "properties": {
+            "admin": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "is_public": {
+              "type": "boolean"
+            },
+            "logo_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "message_count": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "get_message": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Nullable_Message",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Message"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "definitions": {
+        "Message": {
+          "type": "object",
+          "required": [
+            "content",
+            "group_id",
+            "message_id",
+            "modified",
+            "sender",
+            "thumbs_down",
+            "thumbs_up",
+            "timestamp"
+          ],
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "message_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "modified": {
+              "type": "boolean"
+            },
+            "modified_at": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "reply_to": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "sender": {
+              "type": "string"
+            },
+            "sender_content": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "thumbs_down": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "thumbs_up": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "timestamp": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "get_user_color": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Nullable_String",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "get_user_groups": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Array_of_ChatGroup",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ChatGroup"
+      },
+      "definitions": {
+        "ChatGroup": {
+          "type": "object",
+          "required": [
+            "admin",
+            "created_at",
+            "group_id",
+            "is_public",
+            "message_count",
+            "name"
+          ],
+          "properties": {
+            "admin": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "is_public": {
+              "type": "boolean"
+            },
+            "logo_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "message_count": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "get_user_preferences": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Nullable_UserPreferences",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/UserPreferences"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "definitions": {
+        "UserPreferences": {
+          "type": "object",
+          "required": [
+            "color"
+          ],
+          "properties": {
+            "bio": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "color": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "list_messages": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Array_of_Message",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Message"
+      },
+      "definitions": {
+        "Message": {
+          "type": "object",
+          "required": [
+            "content",
+            "group_id",
+            "message_id",
+            "modified",
+            "sender",
+            "thumbs_down",
+            "thumbs_up",
+            "timestamp"
+          ],
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "message_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "modified": {
+              "type": "boolean"
+            },
+            "modified_at": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "reply_to": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "sender": {
+              "type": "string"
+            },
+            "sender_content": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "thumbs_down": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "thumbs_up": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "timestamp": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "list_public_groups": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Array_of_ChatGroup",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ChatGroup"
+      },
+      "definitions": {
+        "ChatGroup": {
+          "type": "object",
+          "required": [
+            "admin",
+            "created_at",
+            "group_id",
+            "is_public",
+            "message_count",
+            "name"
+          ],
+          "properties": {
+            "admin": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "is_public": {
+              "type": "boolean"
+            },
+            "logo_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "message_count": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

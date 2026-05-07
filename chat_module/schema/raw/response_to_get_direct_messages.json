@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Array_of_Message",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Message"
+  },
+  "definitions": {
+    "Message": {
+      "type": "object",
+      "required": [
+        "content",
+        "group_id",
+        "message_id",
+        "modified",
+        "sender",
+        "thumbs_down",
+        "thumbs_up",
+        "timestamp"
+      ],
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "group_id": {
+          "type": "string"
+        },
+        "message_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "modified": {
+          "type": "boolean"
+        },
+        "modified_at": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "reply_to": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "sender": {
+          "type": "string"
+        },
+        "sender_content": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumbs_down": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "thumbs_up": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
