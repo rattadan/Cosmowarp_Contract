@@ -346,16 +346,19 @@ fn execute_update_config(
     admin: Option<String>,
 ) -> Result<Response, ContractError> {
     let mut config = CONFIG.load(deps.storage)?;
-
-    if let Some(ref current_admin) = config.admin {
-        if info.sender.to_string() != *current_admin {
-            return Err(ContractError::Unauthorized {});
-        }
+ 
+    let current_admin = config
+        .admin
+        .as_deref()
+        .ok_or(ContractError::Unauthorized {})?;
+ 
+    if info.sender.as_str() != current_admin {
+        return Err(ContractError::Unauthorized {});
     }
-
+ 
     config.admin = admin;
     CONFIG.save(deps.storage, &config)?;
-
+ 
     Ok(Response::new().add_attribute("method", "update_config"))
 }
 
